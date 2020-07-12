@@ -9,6 +9,7 @@ exports.up = function(knex) {
     pics.string('dimensions')
         .notNullable()
     pics.string('description')
+    pics.string('img_url')
     pics.integer('cat_id')
         .unsigned()
         .notNullable()
