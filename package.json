@@ -1,0 +1,38 @@
+{
+  "name": "grandesignsbackend",
+  "version": "1.0.0",
+  "description": "backend for grandesigns",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tippitytapp/GranDesignsBackend.git"
+  },
+  "author": "Marc Tapp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tippitytapp/GranDesignsBackend/issues"
+  },
+  "homepage": "https://github.com/tippitytapp/GranDesignsBackend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "knex": "^0.21.1",
+    "knex-cleaner": "^1.3.0",
+    "knex-csv-seeder": "^0.4.1",
+    "knex-csv-transformer": "^1.0.4",
+    "moment": "^2.27.0",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "pg": "^8.2.2"
+  }
+}
