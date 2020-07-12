@@ -1,4 +1,6 @@
 const token = process.env.TOKEN;
+const bcryptjs = require('bcryptjs');
+const password = process.env.SUPER_SEC;
 
 const verifyUpload = (req, res, next) => {
     const post = req.body;
@@ -25,7 +27,13 @@ const verifyToken = (req, res, next) => {
     }
 }
 
+const passHash = password => {
+    const hash = bcryptjs.hashSync(password);
+    return hash;
+}
+
 module.exports = {
     verifyUpload,
-    verifyToken
+    verifyToken,
+    passHash
 }
