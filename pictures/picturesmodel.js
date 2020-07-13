@@ -27,10 +27,20 @@ const update = (id, pics) => {
                 return findById(id)
             })
 }
+const findByCategory = cat_id => {
+    return db('pictures')
+            .where({cat_id})
+}
 
+const findByType = type_id => {
+    return db('pictures')
+            .where({type_id})
+}
 module.exports={
     findById,
     getAll,
     add,
-    update
+    update,
+    findByCategory,
+    findByType
 }
