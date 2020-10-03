@@ -3,14 +3,14 @@ const bcryptjs = require('bcryptjs');
 const password = process.env.SUPER_SEC;
 
 const verifyUpload = (req, res, next) => {
-    const post = req.body;
-    if (!post){
+    const art = req.body;
+    if (!art) {
         res.status(400).json({
             message: "Information Required to Post"
         })
-    } else if (!post.title || !post.price || !post.dimensions || !post.cat_id || !post.type_id){
+    } else if (!art.title || !art.price || !art.src || !art.alt || !art.type_id){
         res.status(400).json({
-            message: "Title, Price, Dimensions, Category, and Type are all required fields"
+            message: "Title, Price, Src, Alt, and Type are all required fields"
         })
     } else {
         next()
