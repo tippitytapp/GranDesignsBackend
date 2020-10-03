@@ -1,32 +1,25 @@
-
-exports.up = function(knex) {
-  return knex.schema.createTable('pictures', pics => {
-    pics.increments()
-    pics.string('title')
-        .notNullable()
-    pics.decimal('price')
-        .notNullable()
-    pics.string('dimensions')
-        .notNullable()
-    pics.string('description')
-    pics.string('img_url')
-    pics.integer('cat_id')
+exports.up = function (knex) {
+  return knex.schema
+    .createTable("art", (art) => {
+      art.increments();
+      art.string("title").notNullable();
+      art.decimal("price").notNullable();
+      art.string("size");
+      art.string("description");
+      art.string("src").notNullable();
+      art.string("alt").notNullable();
+      art
+        .integer("type_id")
         .unsigned()
         .notNullable()
-        .references('id')
-        .inTable('categories')
-        .onUpdate('CASCADE')
-        .onDelete('CASCADE')
-    pics.integer('type_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('types')
-        .onUpdate('CASCADE')
-        .onDelete('CASCADE')
-  })
+        .references("id")
+        .inTable("types")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+      art.boolean("custom").defaultTo(false);
+    })
 };
 
-exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('pictures')
+exports.down = function (knex) {
+  return knex.schema.dropTableIfExists("art");
 };

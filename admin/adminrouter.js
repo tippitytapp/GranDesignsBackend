@@ -2,7 +2,7 @@ const router = require('express').Router()
 const bcryptjs = require('bcryptjs');
 const supersecretadminpw = process.env.SUPER_SEC;
 const token = process.env.TOKEN;
-const {passHash} = require('../pictures/picturesmiddleware.js')
+const {passHash} = require('../art/artmiddleware.js')
 
 const newPass = passHash(supersecretadminpw)
 
