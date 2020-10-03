@@ -20,4 +20,10 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.patch('/:id', verifyUpload, (req, res) => { 
+    return Art.updateArt(req.params.id).then(resp => { 
+        res.status(200).json(resp)
+    })
+})
+
 module.exports = router;
