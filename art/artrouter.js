@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
     return Art.getAll().then(resp => res.status(200).json(resp))
 })
 
+router.get('/:type', (req, res) => { 
+    return Art.getArtByType(req.params.type).then(resp => res.status(200).json(resp))
+})
+
 router.post('/', verifyUpload, (req, res) => {
     let art = req.body
     return Art.addArt(art).then(resp => { 
@@ -21,7 +25,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.patch('/:id', verifyUpload, (req, res) => { 
-    return Art.updateArt(req.params.id).then(resp => { 
+    return Art.updateArt(req.params.id, req.body).then(resp => { 
         res.status(200).json(resp)
     })
 })
