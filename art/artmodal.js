@@ -1,7 +1,7 @@
 const db = require("../data/dbConfig.js");
 
 function getAll() {
-  return db("art");
+  return db("art as a").join("types as t", "t.id", "a.type_id");
 }
 async function addArt(art) {
   let [id] = await db("art").insert(art, "id");
@@ -27,14 +27,15 @@ function updateArt(id, udArt) {
     .then((res) => db("art"));
 }
 
-function getArtByType(type) {
-    return db("art").join("types", "art.type_id", "=", "types.id").select("*");
+async function getArtByType(type) {
+  const art = await db("art as a").join("types as t", "t.id", "a.type_id");
+    return art.filter(art => art.type === type)
 }
 
 module.exports = {
   getAll,
   addArt,
   delArt,
-    updateArt,
-  getArtByType
+  updateArt,
+  getArtByType,
 };
