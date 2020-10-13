@@ -4,6 +4,7 @@ const password = process.env.SUPER_SEC;
 
 const verifyUpload = (req, res, next) => {
     const art = req.body;
+    console.log("ART", art)
     if (!art) {
         res.status(400).json({
             message: "Information Required to Post"
