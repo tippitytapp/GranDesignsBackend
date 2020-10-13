@@ -4,7 +4,20 @@ const FormData = require("form-data");
 let data = new FormData();
 
 function getAll() {
-  return db("art as a").join("types as t", "t.id", "a.type_id");
+  return db("art as a")
+    .join("types as t", "t.id", "a.type_id")
+    .select(
+      "a.id",
+      "a.title",
+      "a.price",
+      "a.size",
+      "a.description",
+      "a.src",
+      "a.alt",
+      "a.type_id",
+      "a.custom",
+      "t.type"
+    );
 }
 async function addArt(art) {
   let [id] = await db("art").insert(art, "id");
@@ -13,14 +26,10 @@ async function addArt(art) {
 function findArtById(id) {
   return db("art").where({ id });
 }
-function delArt(id) {
-  return db("art")
-    .where({ id })
-    .first()
-    .delete()
-    .then((res) => {
-      return getAll();
-    });
+async function delArt(id) {
+  console.log("DELART", id);
+  await db("art").where({ id }).delete();
+  return getAll();
 }
 function updateArt(id, udArt) {
   return db("art")

@@ -12,7 +12,7 @@ router.get("/:type", (req, res) => {
   );
 });
 
-router.post("/", verifyUpload, (req, res) => {
+router.post("/", (req, res) => {
   let art = req.body;
   return Art.addArt(art).then((resp) => {
     res.status(201).json(resp);
@@ -21,7 +21,8 @@ router.post("/", verifyUpload, (req, res) => {
 
 router.delete("/:id", (req, res) => {
   return Art.delArt(req.params.id).then((resp) => {
-    res.status(200).json(resp);
+    console.log(resp)
+    res.status(203).json(resp);
   });
 });
 
@@ -31,17 +32,5 @@ router.patch("/:id", verifyUpload, (req, res) => {
   });
 });
 
-router.post("/img", (req, res) => {
-  console.log(req.body);
-  return Art.addImage(res.body)
-    .then((resp) => res.status(201).json(resp))
-    .catch(console.log);
-});
-
-router.get("/img", (req, res) => {
-  return Art.getAllImg()
-    .then((resp) => res.status(200).json(resp))
-    .catch(console.log);
-});
 
 module.exports = router;
