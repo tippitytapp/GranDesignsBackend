@@ -13,3 +13,6 @@ backend for grandesigns
 |PUT|/art/:id|200|
 |DELETE|/art/:id|200|
 |GET|/art/type|200|
+
+
+YOU CAN UPLOAD YOUR OWN IMAGES FINALLY!!!!!!!!!!!
