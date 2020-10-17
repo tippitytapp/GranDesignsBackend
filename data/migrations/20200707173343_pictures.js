@@ -8,6 +8,7 @@ exports.up = function (knex) {
       art.string("description");
       art.string("src").notNullable();
       art.string("alt").notNullable();
+      art.string("tags")
       art
         .integer("type_id")
         .unsigned()
