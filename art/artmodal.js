@@ -16,7 +16,8 @@ function getAll() {
       "a.alt",
       "a.type_id",
       "a.custom",
-      "t.type"
+      "t.type",
+      "a.tags"
     );
 }
 async function addArt(art) {
