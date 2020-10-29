@@ -14,6 +14,7 @@ router.get("/:type", (req, res) => {
 
 router.post("/", (req, res) => {
   let art = req.body;
+  
   return Art.addArt(art).then((resp) => {
     res.status(201).json(resp);
   });
