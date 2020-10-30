@@ -14,7 +14,7 @@ router.get("/:type", (req, res) => {
 
 router.post("/", (req, res) => {
   let art = req.body;
-  
+
   return Art.addArt(art).then((resp) => {
     res.status(201).json(resp);
   });
@@ -27,7 +27,7 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-router.patch("/:id", verifyUpload, (req, res) => {
+router.patch("/:id", (req, res) => {
   return Art.updateArt(req.params.id, req.body).then((resp) => {
     res.status(200).json(resp);
   });
