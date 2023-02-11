@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/tippitytapp/GranDesignsBackend#readme",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "axios": "^0.21.2",
